@@ -1,64 +1,62 @@
 
 import axios from "axios";
-import { useContext, useRef, useState } from "react";
-import { useNavigate } from "react-router-dom";
-import AuthContext from "../../../context/AuthContext";
-import Layout from "../Layout";
+import { useRef, useState } from "react";
 
-
-
-
-const MenuAdd = () => {
-  const authUser = useContext(AuthContext);
-  const navigate = useNavigate();
-  const [postStatus, setPostStatus] = useState("");
+const VolunteerAdd = (cam) => {
+  const [registerStatus, setRegisterStatus] = useState("");
 
   const inputNameRef = useRef();
   const inputPhoneRef = useRef();
-  const inputLocalitiesRef = useRef();
+  const inputEmailRef = useRef();
+  const inputCampaignRef = useRef();
 
 
   const onSubmitHandler = (e) => {
     e.preventDefault();
     const inputName = inputNameRef.current.value;
     const inputPhone = inputPhoneRef.current.value;
-    const inputLocalities = inputLocalitiesRef.current.value;
-    const duserId = authUser.userId;
-    console.log(duserId);
+    const inputEmail = inputEmailRef.current.value;
+    const inputCampaign = inputCampaignRef.current.value;
+
     axios
       .post(
-        "http://localhost:8082/api/meal/post-menu",
+        "http://localhost:8082/api/meal/post-volunteer",
         {
           name: inputName,
           phone: inputPhone,
-          localities: inputLocalities,
-        },
-        {
-          headers: { Authorization: `Bearer ${authUser.token}` },
+          email: inputEmail,
+          campaignid:inputCampaign,
         }
+        
       )
       .then((res) => {
-        console.log(res.data);
-        navigate("/menu-dashboard");
+        setRegisterStatus("SUCCESS");
+        console.log(res);
       })
       .catch((err) => {
+        setRegisterStatus("FAILED");
         console.log(err.message);
-        setPostStatus("FAILED");
       });
 
     inputNameRef.current.value = "";
     inputPhoneRef.current.value = "";
-    inputLocalitiesRef.current.value = "";
+    inputEmailRef.current.value = "";
+    inputCampaignRef.current.value = "";
   };
 
   return (
-    <Layout>
+    
     <div className="d-flex justify-content-center my-5">
       <div className="form-auth">
-        <h3 className="mb-3 fw-semibold text-center">Post Neighbors</h3>
-        {postStatus === "FAILED" && (
-          <div className="form-error text-center">Failed to post data <br/> Phone number already exist</div>
-        )}
+        <h3 className="mb-3 fw-semibold text-center">Join Campaign</h3>
+        {registerStatus === "FAILED" && (
+            <div className="form-error text-center">Register Failed</div>
+          )}
+          {registerStatus === "SUCCESS" && (
+            <div className="form-success text-center">
+              {inputNameRef.current.value} Register successfully!!
+            </div>
+          )}
         <form onSubmit={onSubmitHandler}>
           <label className="form-label">Full Name</label>
           <input className="form-control"
@@ -68,6 +66,14 @@ const MenuAdd = () => {
             required="required"/>
 					
 
+          <label className="form-label">Email</label>
+          <input
+            ref={inputEmailRef}
+            className="form-control mb-3 ps-4 pe-0"
+            type="email"
+            name="email"
+          />
+
           <label className="form-label">Phone Number</label>
           <input
             ref={inputPhoneRef}
@@ -75,13 +81,13 @@ const MenuAdd = () => {
             type="text"
             name="phone"
           />
-
-          <label className="form-label">Localities</label>
+         
           <input
-            ref={inputLocalitiesRef}
+            ref={inputCampaignRef}
             className="form-control mb-3 ps-4 pe-0"
-            type="text"
-            name="localities"
+            type="hidden"
+            name="campaignid"
+            value={cam.campaignid}
           />
 
           <button
@@ -89,13 +95,13 @@ const MenuAdd = () => {
             className="btn btn-success"
             style={{ width: "100%" }}
           >
-            Post Data
+            Join Campaign
           </button>
         </form>
       </div>
     </div>
-    </Layout>
+    
   );
 };
 
-export default MenuAdd;
+export default VolunteerAdd;

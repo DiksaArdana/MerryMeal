@@ -21,6 +21,12 @@ import RiderDasboard from "./pages/RiderDashboard";
 import RegisterList from "./pages/RegisterList";
 import CampaignAdd from "./components/Layout/form/CampaignAdd";
 import CampaignList from "./pages/CampaignList";
+import Campaign from "./pages/Campaign";
+import MenuAdd from "./components/Layout/form/MenuAdd";
+import MenuList from "./pages/MenuList";
+import Menu from "./pages/Menu";
+import MenuDasboard from "./pages/MenuDashboard";
+import OrderDasboard from "./pages/OrderDashboard";
 
 
 function App() {
@@ -33,6 +39,8 @@ function App() {
       <Route path="/about" element={<AboutUs />} />
       <Route path="/contact" element={<ContactUs />} />
       <Route path="/terms" element={<Terms />} />
+      <Route path="/campaign" element={<CampaignList />} />
+      <Route path="/campaign/:name/:camId" element={<Campaign />} />
       <Route path="/signup/:name/:roleId" element={<Register />} />
       {!authUser.isLoggedIn && (
         <>
@@ -40,12 +48,16 @@ function App() {
           <Route path="/signup" element={<RegisterList />} />
         </>
       )}
-      
+      <Route path="/menu" element={authUser.role.includes("member") ? <MenuList/> : <Navigate to="/login" />}/>
+      <Route path="/menu/:name/:menId" element={authUser.role.includes("member") ? <Menu /> : <Navigate to="/login" />}/>
       <Route path="/add-campaign" element={authUser.role.includes("admin") ? <CampaignAdd /> : <Navigate to="/login" />}/>
       <Route path="/admin-dashboard" element={authUser.role.includes("admin") ? <AdminDasboard /> : <Navigate to="/login" />}/>
       <Route path="/partner-dashboard" element={authUser.role.includes("partner") ? <PartnerDasboard /> : <Navigate to="/login" />}/>
+      <Route path="/add-menu" element={authUser.role.includes("partner") ? <MenuAdd /> : <Navigate to="/login" />}/>
+      <Route path="/partner-dashboard/:pid" element={authUser.role.includes("partner") ? <MenuDasboard /> : <Navigate to="/login" />}/>
+      <Route path="/partner-dashboard/order/:pid" element={authUser.role.includes("partner") ? <OrderDasboard /> : <Navigate to="/login" />}/>
       <Route path="/rider-dashboard" element={authUser.role.includes("rider") ? <RiderDasboard /> : <Navigate to="/login" />}/>
-      <Route path="/campaign-list" element={authUser.isLoggedIn ? <CampaignList /> : <Navigate to="/login" />}/>
+      
       <Route path="/oauth2/redirect" element={<OAuth2RedirectHandler />} />
       <Route
         path="/profile"

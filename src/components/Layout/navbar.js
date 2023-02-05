@@ -15,7 +15,7 @@ const NavigationBar = (props) => {
         <nav className="navbar navbar-expand-lg bg-primary navbar-dark">
             <div className="container-fluid">
                 <a className="navbar-brand" href="/">
-                    <img src={logo} alt="" width="80" height="74" />KYN</a>
+                    <img src={logo} alt="" width="80" height="74" />MerryMeal</a>
                 <button className="navbar-toggler" type="button"
                     data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
                     aria-controls="navbarSupportedContent" aria-expanded="false"
@@ -30,6 +30,7 @@ const NavigationBar = (props) => {
                             <li className="nav-item"><NavLink to="/about" className="nav-link ">About Us</NavLink></li>
                             <li className="nav-item"><NavLink to="/contact" className="nav-link ">Contact Us</NavLink></li>
                             <li className="nav-item"><NavLink to="/terms" className="nav-link ">Terms & Condition</NavLink></li>
+                            <li className="nav-item"><NavLink to="/campaign" className="nav-link ">Campaign</NavLink></li>
                         </ul>
                         <div className="nav-button d-flex flex-column flex-lg-row mx-3">
                             <NavLink to="/login" className="btn btn-outline-warning me-0 me-lg-3 mb-3 mb-lg-0">Login</NavLink>
@@ -59,10 +60,16 @@ const NavigationBar = (props) => {
                                     <li className="mb-3"><NavLink to="/add-campaign" className="btn btn-outline-warning me-0 me-lg-3 mb-3 mb-lg-0 ">Campaign </NavLink></li></>
                                 )}
                                 {authCtx.role.includes("member") && (
-                                    <li className="mb-3"><NavLink to="/list-order" className="btn btn-outline-warning me-0 me-lg-3 mb-3 mb-lg-0 ">Order</NavLink></li>
+                                    <>
+                                    <li className="mb-3"><NavLink to="/menu" className="btn btn-outline-warning me-0 me-lg-3 mb-3 mb-lg-0 ">Menu</NavLink></li>
+                                    </>
                                 )}
                                 {authCtx.role.includes("partner") && (
-                                    <li className="mb-3"><NavLink to="/partner-dashboard" className="btn btn-outline-warning me-0 me-lg-3 mb-3 mb-lg-0 ">Order Request</NavLink></li>
+                                    <>
+                                    <li className="mb-3"><NavLink to="/partner-dashboard" className="btn btn-outline-warning me-0 me-lg-3 mb-3 mb-lg-0 ">Order</NavLink></li>
+                                    <li className="mb-3"><NavLink to="/add-menu" className="btn btn-outline-warning me-0 me-lg-3 mb-3 mb-lg-0 ">Add Menu</NavLink></li>
+                                    </>
+                                    
                                 )}
                                 {authCtx.role.includes("rider") && (
                                     <li className="mb-3"><NavLink to="/rider-dashboard" className="btn btn-outline-warning me-0 me-lg-3 mb-3 mb-lg-0 ">Deliver Request</NavLink></li>

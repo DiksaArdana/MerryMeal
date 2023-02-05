@@ -15,6 +15,7 @@ const CampaignAdd = () => {
   const inputTitleRef = useRef();
   const inputDescRef = useRef();
   const inputFileRef = useRef();
+  const inputStatusRef = useRef();
 
 
   const onSubmitHandler = (e) => {
@@ -22,13 +23,17 @@ const CampaignAdd = () => {
     const inputTitle = inputTitleRef.current.value;
     const inputDesc = inputDescRef.current.value;
     const inputFile = inputFileRef.current.value;
+    const inputStatus = inputStatusRef.current.value;
+    const formData = new FormData();
+    formData.append("file", inputFile)
     axios
       .post(
         "http://localhost:8082/api/meal/post-campaign",
         {
           title: inputTitle,
           desc: inputDesc,
-          file: inputFile,
+          file: formData.append('file',inputFile),
+          status:inputStatus
         },
         {
           headers: { Authorization: `Bearer ${authUser.token}` },
@@ -36,7 +41,7 @@ const CampaignAdd = () => {
       )
       .then((res) => {
         console.log(res.data);
-        navigate("/menu-dashboard");
+        navigate("/admin-dashboard");
       })
       .catch((err) => {
         console.log(err.message);
@@ -46,6 +51,7 @@ const CampaignAdd = () => {
     inputTitleRef.current.value = "";
     inputDescRef.current.value = "";
     inputFileRef.current.value = "";
+    inputStatusRef.current.value = "";
   };
 
   return (
@@ -80,7 +86,16 @@ const CampaignAdd = () => {
             type="file"
             name="file"
           />
-
+          <label className="form-label">Status</label>
+          <select
+            ref={inputStatusRef}
+            className="form-control mb-3 ps-4 pe-0"
+            type="text"
+            name="status"
+          >
+            <option value={true}>Avalible</option>
+            <option value={false}>unavailable</option>
+          </select>
           <button
             type="submit"
             className="btn btn-success"
