@@ -35,6 +35,8 @@ export const AuthContextProvider = (props) => {
   const [user, setUser] = useState({
     name: "",
     userId: "",
+    address: "",
+    phone: "",
     role:"",
   });
 
@@ -52,6 +54,8 @@ export const AuthContextProvider = (props) => {
           setUser({
             name: res.data.name,
             userId: res.data.id,
+            address: res.data.id,
+            phone:res.data.phone,
             role:res.data.role,
           });
         })
@@ -80,6 +84,8 @@ export const AuthContextProvider = (props) => {
     name: user.name,
     userId: user.userId,
     role: user.role,
+    address: user.address,
+    phone: user.phone,
     token: token,
     isLoggedIn: userIsLoggedIn,
     login: loginHandler,

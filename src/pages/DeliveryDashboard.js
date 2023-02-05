@@ -1,25 +1,26 @@
 import axios from "axios";
 import React, {  useEffect, useRef, useState } from "react";
-import { Link, useParams } from "react-router-dom";
+import { Navigate, redirect, useParams } from "react-router-dom";
 
 import Layout from "../components/Layout/Layout";
-import { getListOrderPartner } from "../services/StoreService";
-const OrderDasboard =()=>{
-    const [listOrder, setListOrder] = useState([]);
+import { getListDeliveryMember } from "../services/StoreService";
+const DeliveryDasboard =()=>{
+    const [listDeliver, setListDeliver] = useState([]);
     const params = useParams();
     const inputIdRef = useRef();
-    const inputStatusRef = useRef();
+    const inputDeliveredRef = useRef();
     const [registerStatus, setRegisterStatus] = useState("");
+
     const onSubmitHandler = (e) => {
-    
+    e.preventDefault();
     const inputId = inputIdRef.current.value;
-    const inputStatus = inputStatusRef.current.value;
+    const inputDelivered = inputDeliveredRef.current.value;
     axios
       .post(
-        "http://localhost:8082/api/meal/edit-order",
+        "http://localhost:8082/api/meal/edit-delivery",
         {
           id: inputId,
-          status: inputStatus,
+          delivered: inputDelivered,
         }
         
       )
@@ -33,17 +34,16 @@ const OrderDasboard =()=>{
       });
 
     inputIdRef.current.value = "";
-    inputStatusRef.current.value = "";
+    inputDeliveredRef.current.value = "";
     };
 
     // Get List Car
     useEffect(() => {
-      
-        getListOrderPartner(
-          params.pid,
+      getListDeliveryMember(
+          params.meId,
           (data) => {
             console.log(data);
-            setListOrder(data);
+            setListDeliver(data);
           },
           (error) => {
             console.log(error);
@@ -51,43 +51,51 @@ const OrderDasboard =()=>{
         );
   
       return () => {};
-    },[params.pid]);
+    },[params.meId]);
     return (
         
         <div>
             <Layout>
-            <h2>Dashboard Menu Partner</h2>
+            <h2>My Delivery</h2>
+            {registerStatus === "FAILED" && (
+            <div className="form-error text-center"> Invalid Error</div>
+          )}
+          {registerStatus === "SUCCESS" && (
+            <div className="form-success text-center">
+               Thank You!
+            </div>
+          )}
                 <div className="container">
                     <table border={"1px"} className="table">
                         <tr className="text-center">
-                            <th >id</th>
-                            <th >Menu</th>
-                            <th >Member</th>
-                            <th >Phone</th>
+
                             <th >Date Time</th>
+                            <th >Menu</th>
+                            <th >Rider</th>
+                            <th >Phone</th>
                             <th >Action</th>
                         </tr>
-                        {listOrder.map((cam) => (
+                        {listDeliver.map((cam) => (
                         <tr className="text-center">
-                            <td >{cam.id}</td>
-                            <td >{cam.menuid.name}</td>
-                            <td >{cam.memberid.name}</td>
-                            <td >{cam.memberid.phone}</td>
+                            <td >{cam.datetime}</td>
+                            <td >{cam.orderid.menuid.name}</td>
+                            <td >{cam.riderid.name}</td>
+                            <td >{cam.riderid.phone}</td>
                             <td >{cam.datetime}</td>
                             <td >
         <form onSubmit={onSubmitHandler}>
           
           <input className="form-control"
             ref={inputIdRef} 
-            name="orderid" 
+            name="id" 
             type="hidden"
             value={cam.id}/>
 					
           <input
-            ref={inputStatusRef}
+            ref={inputDeliveredRef}
             className="form-control mb-3 ps-4 pe-0"
             type="hidden"
-            name="status"
+            name="delivered"
             value={true}
           />
          
@@ -96,7 +104,7 @@ const OrderDasboard =()=>{
             className="btn btn-success"
             style={{ width: "100%" }}
           >
-            Deliver Order
+            Delivery Arrive
           </button>
         </form>
                             </td>
@@ -108,4 +116,4 @@ const OrderDasboard =()=>{
         </div>
     )
 }
-export default OrderDasboard;
+export default DeliveryDasboard;

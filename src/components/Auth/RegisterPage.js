@@ -8,6 +8,8 @@ const RegisterPage = (roles) => {
   const inputEmailRef = useRef();
   const inputPasswordRef = useRef();
   const inputRoleRef = useRef();
+  const inputAddressRef = useRef();
+  const inputPhoneRef = useRef();
 
   const [registerStatus, setRegisterStatus] = useState("");
 
@@ -16,12 +18,16 @@ const RegisterPage = (roles) => {
     const inputName = inputNameRef.current.value;
     const inputEmail = inputEmailRef.current.value;
     const inputPassword = inputPasswordRef.current.value;
+    const inputPhone = inputPhoneRef.current.value;
+    const inputAddress = inputAddressRef.current.value;
     const inputRole = inputRoleRef.current.value;
     axios
       .post("http://localhost:8082/api/auth/signup", {
         name: inputName,
         email: inputEmail,
         password: inputPassword,
+        phone: inputPhone,
+        address : inputAddress,
         role:inputRole,
       })
       .then((res) => {
@@ -37,12 +43,14 @@ const RegisterPage = (roles) => {
     inputEmailRef.current.value = "";
     inputPasswordRef.current.value = "";
     inputRoleRef.current.value = "";
+    inputAddressRef.current.value = "";
+    inputPhoneRef.current.value = "";
   };
 
   return (
     <div className="d-flex justify-content-center">
       <div className="form-auth my-5 py-5 bg-light">
-        <h3 className="mb-3 fw-semibold text-center">Register</h3>
+        <h3 className="mb-3 fw-semibold text-center">Register for {roles.name}</h3>
         <form onSubmit={onSubmitHandler}>
           {registerStatus === "FAILED" && (
             <div className="form-error text-center">Register Failed</div>
@@ -65,6 +73,20 @@ const RegisterPage = (roles) => {
             type="email"
             name="email"
             placeholder="Email"
+          />
+          <input
+            ref={inputPhoneRef}
+            className="form-control mb-3 ps-4 pe-0"
+            type="text"
+            name="phone"
+            placeholder="phone number"
+          />
+          <input
+            ref={inputAddressRef}
+            className="form-control mb-3 ps-4 pe-0"
+            type="text"
+            name="address"
+            placeholder="Address"
           />
           <input
             ref={inputPasswordRef}

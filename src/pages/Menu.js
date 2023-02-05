@@ -77,6 +77,7 @@ const Menu = () => {
   
     return (
       <Layout>
+        <img className="card-img-top" src="https://familydoctor.org/wp-content/uploads/2010/05/shutterstock_300553067.jpg"alt="" />
         <h2>{cam.name}</h2>
         <p>{cam.desc}</p>
         

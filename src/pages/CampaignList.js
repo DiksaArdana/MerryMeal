@@ -33,7 +33,7 @@ const CampaignList = () => {
         {listCampaign.map((cam) => (
           <div className="col-12 col-md-6 col-md-4 col-lg-3 mb-3">
           <div className="card">
-            <img className="card-img-top" src={cam.image} alt={cam.title} />
+            <img className="card-img-top" src="https://brainmd.com/blog/wp-content/uploads/boost-happiness-by-helping-others-1.jpg" alt={cam.title} />
             <div className="card-body d-flex justify-content-between flex-column">
               <p className=" fw-bold m-1">
                  {cam.title} 

@@ -13,8 +13,8 @@ const Home =()=>{
                     <div className="row gx-5 align-items-center justify-content-center">
                         <div className="col-lg-8 col-xl-7 col-xxl-6">
                             <div className="my-5 text-center text-xl-start">
-                                <h1 className="display-5 fw-bolder mb-2">Know Your Neighbourhood</h1>
-                                <p className="lead fw-normal text-dark-50 mb-4">Explore your neighbourhood to konw each other.</p>
+                                <h1 className="display-5 fw-bolder mb-2">Merry meal</h1>
+                                <p className="lead fw-normal text-dark-50 mb-4">Explore your neighbourhood to help each other.</p>
                                 {!authCtx.isLoggedIn && (<NavLink to="/login" className="btn btn-outline-primary me-0 me-lg-3 mb-3 mb-lg-0">Join Now</NavLink>)}
                                 
 								

@@ -1,5 +1,5 @@
 import React, {  useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 
 import Layout from "../components/Layout/Layout";
 import { getListMenuPartner } from "../services/StoreService";
@@ -14,6 +14,7 @@ const MenuDasboard =()=>{
         getListMenuPartner(
           params.pid,
           (data) => {
+            console.log(data);
             setListMenu(data);
           },
           (error) => {
@@ -27,25 +28,23 @@ const MenuDasboard =()=>{
         
         <div>
             <Layout>
-                <h2>Dashboard Partner</h2>
+                <h2>Dashboard Menu Partner</h2>
                 <div className="container">
                     <table>
                         <tr>
                             <th>id</th>
-                            <th>menu name</th>
-                            <th>Desc</th>
+                            <th>Name</th>
+                            <th>Email</th>
                             <th>Status</th>
                         </tr>
-                        {listMenu.map((menus) => (
-                            <tr>
-                                <td>{menus.id}</td>
-                                <td>{menus.name}</td>
-                                <td>{menus.desc}</td>
-                                <td>{menus.status}</td>
-                                
-                            </tr>
+                        {listMenu.map((cam) => (
+                        <tr>
+                            <td>{cam.id}</td>
+                            <td>{cam.name}</td>
+                            <td>{cam.desc}</td>
+                            <td>{cam.status}</td>
+                        </tr>
                         ))}
-                        
                     </table>
                 </div>
                 

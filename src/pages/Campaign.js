@@ -37,6 +37,7 @@ const Campaign = () => {
 
     return (
       <Layout>
+        <img className="card-img-top" src="https://brainmd.com/blog/wp-content/uploads/boost-happiness-by-helping-others-1.jpg"alt="" />
         <h2>{cam.title}</h2>
         <p>{cam.desc}</p>
         <VolunteerAdd {...cam} />
