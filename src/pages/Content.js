@@ -4,7 +4,10 @@ import about2 from "./../assets/about2.svg";
 import about3 from "./../assets/about3.svg";
 import about4 from "./../assets/about4.svg";
 import about5 from "./../assets/about5.svg";
+<<<<<<< HEAD
 import "./_myStyle.css"
+=======
+>>>>>>> 3010a308dd710677723fcd62a76de42b5ddcb249
 
 const Content = () => {
   return (

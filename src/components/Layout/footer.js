@@ -1,9 +1,18 @@
+<<<<<<< HEAD
 import {BsFacebook, BsInstagram, BsLinkedin, BsTwitter, BsYoutube} from "react-icons/bs"
 import { NavLink } from "react-router-dom";
 import "../../pages/_myStyle.css"
 const Footer = ()=>{
     return(
 <div>
+=======
+import React from 'react'
+import { NavLink } from "react-router-dom";
+
+const footer = () => {
+  return (
+    <div>
+>>>>>>> 3010a308dd710677723fcd62a76de42b5ddcb249
         <footer className="Footerbody">
     <div className="contentfooter">
       <div className="top">
@@ -11,11 +20,19 @@ const Footer = ()=>{
           <span className="logo_name">Merry Meals</span>
         </div>
         <div className="media-icons">
+<<<<<<< HEAD
         <NavLink to="#"><BsFacebook></BsFacebook></NavLink>
         <NavLink to="#"><BsTwitter/></NavLink>
         <NavLink to="#"><BsInstagram/></NavLink>
         <NavLink to="#"><BsLinkedin/></NavLink>
         <NavLink to="#"><BsYoutube/></NavLink>
+=======
+        <NavLink to="#"><i class="fab fa-facebook-f"></i></NavLink>
+        <NavLink to="#"><i class="fab fa-twitter"></i></NavLink>
+        <NavLink to="#"><i class="fab fa-instagram"></i></NavLink>
+        <NavLink to="#"><i class="fab fa-linkedin-in"></i></NavLink>
+        <NavLink to="#"><i class="fab fa-youtube"></i></NavLink>
+>>>>>>> 3010a308dd710677723fcd62a76de42b5ddcb249
 
         </div>
       </div>
@@ -53,9 +70,14 @@ const Footer = ()=>{
       </div>
     </div>
   </footer>
+<<<<<<< HEAD
 
     </div>
+=======
+>>>>>>> 3010a308dd710677723fcd62a76de42b5ddcb249
 
-    );
-};
-export default Footer;
+    </div>
+  )
+}
+
+export default footer;

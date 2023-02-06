@@ -2,6 +2,10 @@ import React, { useEffect, useState } from "react";
 import Layout from "../../components/Layout/Layout";
 import { Row, Col, Image } from "react-bootstrap";
 import { Link } from "react-router-dom";
+<<<<<<< HEAD
+=======
+
+>>>>>>> 3010a308dd710677723fcd62a76de42b5ddcb249
 import { Ovo, Gopay, Paypal } from "../../img/index";
 import { donationList } from "../../pages/donasi/donation-api";
 
@@ -32,7 +36,11 @@ const Donation = () => {
                 className="column-content-img p-0 mb-4 mb-lg-0"
               >
                 <div className="parent-img-donation">
+<<<<<<< HEAD
                   <Image src="https://www.leaf.ca/wp-content/uploads/elementor/thumbs/iStock-1163228217-scaled-oxcp7dlxlvswkph8bb90c293mgxqktrf4yozycc460.jpg" className="img-item-banner img-fluid" />
+=======
+                  <Image src={Banner} className="img-item-banner img-fluid" />
+>>>>>>> 3010a308dd710677723fcd62a76de42b5ddcb249
                 </div>
               </Col>
 
@@ -48,7 +56,11 @@ const Donation = () => {
                   <Link
                     to="/donation/donate"
                     type="button"
+<<<<<<< HEAD
                     className="btn btn-warning fw-bold btn-donation text-darken"
+=======
+                    className="btn btn-shade-yellow fw-bold btn-donation text-darken"
+>>>>>>> 3010a308dd710677723fcd62a76de42b5ddcb249
                   >
                     Donate Now
                   </Link>

@@ -1,7 +1,14 @@
 import React from "react";
+<<<<<<< HEAD
 import Layout from "../../components/Layout/Layout";
 import { Image } from "react-bootstrap";
 import { Link } from "react-router-dom";
+=======
+import Layout from "../../components/Layout/Layout";;
+import { Image } from "react-bootstrap";
+import { Link } from "react-router-dom";
+
+>>>>>>> 3010a308dd710677723fcd62a76de42b5ddcb249
 import { ImgThankPage } from "../../img/index";
 
 const ThankYou = () => {

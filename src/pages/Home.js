@@ -2,7 +2,11 @@ import React, { useContext } from "react";
 import { NavLink } from "react-router-dom";
 import Layout from "../components/Layout/Layout";
 import AuthContext from "../context/AuthContext";
+<<<<<<< HEAD
 import Content from "./Content";
+=======
+import Content from "../pages/Content";
+>>>>>>> 3010a308dd710677723fcd62a76de42b5ddcb249
 const Home =()=>{
     const authCtx = useContext(AuthContext);
     return (
@@ -25,7 +29,11 @@ const Home =()=>{
                     </div>
                 </div>
       </header>
+<<<<<<< HEAD
 <Content></Content>
+=======
+      <Content />
+>>>>>>> 3010a308dd710677723fcd62a76de42b5ddcb249
             </Layout>
         </div>
     )
