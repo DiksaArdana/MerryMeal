@@ -2,7 +2,7 @@ import React from "react";
 import Layout from "../../components/Layout/Layout";
 
 import { useForm } from "react-hook-form";
-import { donateAPI } from "../../api/donation-api";
+import { donateAPI } from "../../pages/donasi/donate-api";
 import { useNavigate } from "react-router-dom";
 
 const Donate = () => {

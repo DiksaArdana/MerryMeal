@@ -4,7 +4,7 @@ import { Row, Col, Image } from "react-bootstrap";
 import { Link } from "react-router-dom";
 
 import { Ovo, Gopay, Paypal } from "../../img/index";
-import { donationList } from "../../api/donation-api";
+import { donationList } from "../../pages/donasi/donation-api";
 
 const Donation = () => {
   const [showMore, setShowMore] = useState(false);
