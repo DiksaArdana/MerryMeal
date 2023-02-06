@@ -29,7 +29,7 @@ const NavigationBar = (props) => {
                             <li className="nav-item"><Link to="/" className="nav-link ">Home</Link></li>
                             <li className="nav-item"><NavLink to="/about" className="nav-link ">About Us</NavLink></li>
                             <li className="nav-item"><NavLink to="/contact" className="nav-link ">Contact Us</NavLink></li>
-                            <li className="nav-item"><NavLink to="/terms" className="nav-link ">Terms & Condition</NavLink></li>
+                            <li className="nav-item"><NavLink to="/donation" className="nav-link ">Donation</NavLink></li>
                             <li className="nav-item"><NavLink to="/campaign" className="nav-link ">Campaign</NavLink></li>
                         </ul>
                         <div className="nav-button d-flex flex-column flex-lg-row mx-3">
@@ -45,7 +45,6 @@ const NavigationBar = (props) => {
                             <li className="nav-item"><Link to="/" className="nav-link ">Home</Link></li>
                             <li className="nav-item"><NavLink to="/about" className="nav-link ">About Us</NavLink></li>
                             <li className="nav-item"><NavLink to="/contact" className="nav-link ">Contact Us</NavLink></li>
-                            <li className="nav-item"><NavLink to="/terms" className="nav-link ">Terms & Condition</NavLink></li>
                             <li className="nav-item"><NavLink to="/campaign" className="nav-link ">Campaign</NavLink></li>
 
                         </ul>

@@ -4,6 +4,7 @@ import { useContext, useEffect, useRef, useState } from "react";
 import { useParams } from "react-router-dom";
 import { getMenu } from "../services/StoreService";
 import AuthContext from "../context/AuthContext";
+import { Image } from "react-bootstrap";
 
 const Menu = () => {
   const [cam, setCampaign] = useState({
@@ -77,9 +78,11 @@ const Menu = () => {
   
     return (
       <Layout>
-        <img className="card-img-top" src="https://familydoctor.org/wp-content/uploads/2010/05/shutterstock_300553067.jpg"alt="" />
+        <div className="text-center pt-3">
+        <Image className="img-item-banner img-fluid" src="https://familydoctor.org/wp-content/uploads/2010/05/shutterstock_300553067.jpg"alt=""  width={"400px"}/>
         <h2>{cam.name}</h2>
         <p>{cam.desc}</p>
+        </div>
         
             
     <div className="d-flex justify-content-center my-5">

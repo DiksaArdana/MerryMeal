@@ -2,6 +2,7 @@ import React, { useContext } from "react";
 import { NavLink } from "react-router-dom";
 import Layout from "../components/Layout/Layout";
 import AuthContext from "../context/AuthContext";
+import Content from "./Content";
 const Home =()=>{
     const authCtx = useContext(AuthContext);
     return (
@@ -24,7 +25,7 @@ const Home =()=>{
                     </div>
                 </div>
       </header>
-
+<Content></Content>
             </Layout>
         </div>
     )

@@ -1,37 +1,86 @@
 import React from "react";
+import { NavLink } from "react-router-dom";
 import Layout from "../components/Layout/Layout";
-import Banner from "../img/picture-1920-1080.jpg";
-import { BiCalendarStar,BiHistory } from "react-icons/bi";
+import logo from "../img/KynLogo.png";
+import partner1 from "./../assets/partner1.png";
+import partner2 from "./../assets/partner2.png";
+import partner3 from "./../assets/partner3.png"
+import "./_myStyle.css"
 const AboutUs = () => {
     return (
         <Layout>
-            <div className="p-5" style={{ backgroundImage: `url(${Banner})`, backgroundSize: "cover", minHeight: "480px" }}>
-                <div className="row col-6 bg-light" style={{ opacity: "0.8" }}>
-                    <h1 class="display-5 fw-bold">Get to Know Your Neighbors</h1>
-                    <p class="col-md-8 fs-4">
-                        Families across Denpasar neighborhoods share their hopes and aspirations. Discover their stories and perspectives on how systems in our city provide opportunities—and sometimes how those systems create obstacles.
-                    </p>
-                </div>
+<div>
+        <section className="about-us">
+          <div className="about">
+            <div className="row">
+                <div className="col-md">
+            <img
+              className="pic"
+              src={logo}
+              alt="Second slide"
+              style={{ maxHeight: "500px" }}
+            />
             </div>
-            <div className="container px-5 my-5">
-                <div className="row gx-5 justify-content-center">
-                    <div className="col-lg-6">
-                        <div className="text-center mb-5">
-                           <h2> <BiHistory/></h2>
-                            <h1 className="fw-bolder">Stories</h1>
-                            <p className="lead fw-normal text-muted mb-0">Know your neighbors from their perspective. Stories about people and families across Denpasar neighborhoods.</p>
-                        </div>
-                    </div>
-                    <div className="col-lg-6">
-                        <div className="text-center mb-5">
-                        <h2><BiCalendarStar /></h2>
-                            <h1 className="fw-bolder">Event</h1>
-                            <p className="lead fw-normal text-muted mb-0">Connect with your neighbors and get to know them. The city to hold events and experiences introducing you to new people and places. Join us at an upcoming event!</p>
-                        </div>
-                    </div>
-                </div>
+            <div className="text col-md">
+              <h2>About Us</h2>
+              <h4>
+                Merry <span>Meals</span>
+              </h4>
+              <p>
+                MerryMeal is a charitable organization that prepares and
+                delivers a hot noon meal to qualified adults living at home who
+                are unable to cook for themselves or maintain their nutritional
+                status due to age, disease, or disability. The service will be
+                available Monday through Friday. Frozen meals will be provided
+                to members who are not within a 10-kilometer radius of their
+                outsourced kitchens and support over the weekend. MerryMeal has
+                partnered with several food service providers across the country
+                to provide the quickest delivery possible.
+              </p>
+              <div className="data">
+              <NavLink to="/contact" className="hire"> Contact us for more information</NavLink>
+              </div>
+              </div>
             </div>
-        </Layout>
+          </div>
+        </section>
+       
+        <div className="fullco row">
+          <div className="wrapper">
+            <h1>Our Partner</h1>
+            <p>This is our food partner service that work together with us</p>
+            <div className="contentt-box">
+              <div className="card">
+                <img className="pic" src={partner1} alt="Second slide" />
+                <h2>Netherland Food Partnership</h2>
+                <p>
+                  Netherlands Food Partnership connects and supports Merry Meals
+                  charitable organization
+                </p>
+              </div>
+              <div className="card">
+                <img className="pic" src={partner2} alt="Second slide" />
+                <h2>Lovanio Gourmet Company</h2>
+                <p>
+                  Full-service partner for food distribution companies in
+                  Kuwait.
+                </p>
+              </div>
+
+              <div className="card">
+                <img className="pic" src={partner3} alt="Second slide" />
+                <h2>Blue food Partnership</h2>
+                <p>
+                  Blue foods are the most highly traded food products in the
+                  world
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </Layout>
     )
 }
 export default AboutUs;

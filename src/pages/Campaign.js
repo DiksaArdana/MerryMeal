@@ -4,6 +4,7 @@ import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { getCampaign } from "../services/StoreService";
 import VolunteerAdd from "../components/Layout/form/VolunteerAdd";
+import { Image } from "react-bootstrap";
 const Campaign = () => {
   const [cam, setCampaign] = useState({
     name: "",
@@ -37,9 +38,11 @@ const Campaign = () => {
 
     return (
       <Layout>
-        <img className="card-img-top" src="https://brainmd.com/blog/wp-content/uploads/boost-happiness-by-helping-others-1.jpg"alt="" />
+        <div className="text-center pt-3">
+        <Image className="img-item-banner img-fluid" src="https://brainmd.com/blog/wp-content/uploads/boost-happiness-by-helping-others-1.jpg"alt=""  width={"400px"}/>
         <h2>{cam.title}</h2>
         <p>{cam.desc}</p>
+        </div>
         <VolunteerAdd {...cam} />
       </Layout>
     );

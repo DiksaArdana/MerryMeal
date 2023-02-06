@@ -5,14 +5,16 @@ import Layout from "../components/Layout/Layout";
 const Terms = () => {
 
     return (
-
-
-        <Layout>
+<Layout>
             <div className="container">
+                <br />
+                <br />
+                <br />
+                <br />
                 <h2 className="text-center">Terms & Condition</h2>
                 <div className="row">
                     <div className="col-md-8 bg-light p-3 my-3">
-                        <b>Using KYN</b>
+                        <b>Using  Merry Meals</b>
                         <p>
                             You agree to use KYNonly for lawful purposes. You must also use it in a way that does not infringe the rights of, or restrict or inhibit the use and enjoyment of, this site by anyone else.
                             We update KYNall the time. We can change or remove content at any time without notice.
@@ -24,7 +26,7 @@ const Terms = () => {
                             Some services have their own terms and conditions which also apply - read these before you use the service.
 
                         </p>
-                        <b>Linking to KYN</b>
+                        <b>Linking to  Merry Meals</b>
                         <p>
                             We welcome and encourage other websites to link to KYN.
                             You must contact us for permission if you want to either:<br />
@@ -32,7 +34,7 @@ const Terms = () => {
                             •	say your website is associated with or endorsed by KYNor another government department or agency
 
                         </p>
-                        <b>Using KYN content</b>
+                        <b>Using Merry Meals content</b>
                         <p>
                             Most content on KYNis subject to Crown copyright protection and is published under the Open Government Licence (OGL).
                             Some content is exempt from the OGL - check the list of exemptions.
@@ -56,6 +58,9 @@ const Terms = () => {
                         </p>
                     </div>
                 </div>
+                <br />
+                <br />
+                <br />
             </div>
 
         </Layout>

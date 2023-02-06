@@ -29,6 +29,9 @@ import OrderDasboard from "./pages/OrderDashboard";
 import DeliveryDasboard from "./pages/DeliveryDashboard";
 import CaregiverDasboard from "./pages/CaregiverDashboard";
 import CaregiverDeliverDasboard from "./pages/CaregiverDeliverDashboard";
+import Donation from "./pages/donasi/Donation";
+import Donate from "./pages/donasi/Donate";
+import ThankYou from "./pages/donasi/ThankYou";
 
 
 function App() {
@@ -42,6 +45,9 @@ function App() {
       <Route path="/contact" element={<ContactUs />} />
       <Route path="/terms" element={<Terms />} />
       <Route path="/campaign" element={<CampaignList />} />
+      <Route path="/donation" element={<Donation />} />
+      <Route path="/donation/donate" element={<Donate />} />
+      <Route path="/donation/thank-you" element={<ThankYou />} />
       <Route path="/campaign/:name/:camId" element={<Campaign />} />
       <Route path="/signup/:name/:roleId" element={<Register />} />
       {!authUser.isLoggedIn && (
