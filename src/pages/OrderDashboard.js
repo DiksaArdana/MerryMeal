@@ -1,12 +1,14 @@
 import axios from "axios";
-import React, {  useEffect, useRef, useState } from "react";
+import React, {  useContext, useEffect, useRef, useState } from "react";
 import { Link, useParams } from "react-router-dom";
 
 import Layout from "../components/Layout/Layout";
+import AuthContext from "../context/AuthContext";
 import { getListOrderPartner } from "../services/StoreService";
 const OrderDasboard =()=>{
+  const authCtx = useContext(AuthContext);
+
     const [listOrder, setListOrder] = useState([]);
-    const params = useParams();
     const inputIdRef = useRef();
     const inputStatusRef = useRef();
     const [registerStatus, setRegisterStatus] = useState("");
@@ -36,11 +38,11 @@ const OrderDasboard =()=>{
     inputStatusRef.current.value = "";
     };
 
-    // Get List Car
+    // Get List Order as partner
     useEffect(() => {
       
         getListOrderPartner(
-          params.pid,
+          authCtx.userId,
           (data) => {
             console.log(data);
             setListOrder(data);
@@ -51,12 +53,12 @@ const OrderDasboard =()=>{
         );
   
       return () => {};
-    },[params.pid]);
+    },[authCtx.userId]);
     return (
         
         <div>
             <Layout>
-            <h2>Dashboard Menu Partner</h2>
+            <h2>Dashboard Order Partner</h2>
                 <div className="container">
                     <table border={"1px"} className="table">
                         <tr className="text-center">

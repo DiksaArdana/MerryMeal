@@ -147,6 +147,20 @@ export function getListDeliver(callback, errorCallback) {
       }
     });
 }
+export function getListDeliverRider(id,callback, errorCallback) {
+  axios
+    .get(`http://localhost:8082/api/meal/delivery-list/${id}`)
+    .then((res) => {
+      if (callback != null) {
+        callback(res.data);
+      }
+    })
+    .catch((err) => {
+      if (errorCallback != null) {
+        errorCallback(err.message);
+      }
+    });
+}
 export function getListDeliveryMember(id,callback, errorCallback) {
   axios
     .get(`http://localhost:8082/api/meal/delivery/${id}`)
@@ -189,19 +203,19 @@ export function getListUser(callback, errorCallback) {
       }
     });
 }
-// // GET Search By Keyword
-// export function getSearchByKeyword(keyword, callback, errorCallback) {
-//   axios
-//     .get(`http://localhost:8082/api/store/search?keyword=${keyword}`)
-//     .then((res) => {
-//       if (callback != null) {
-//         callback(res.data);
-//       }
-//     })
-//     .catch((err) => {
-//       if (errorCallback != null) {
-//         errorCallback(err.message);
-//       }
-//     });
-// }
+export function getListRider(callback, errorCallback) {
+  axios
+    .get(`http://localhost:8082/api/users/rider-list`)
+    .then((res) => {
+      if (callback != null) {
+        callback(res.data);
+      }
+    })
+    .catch((err) => {
+      if (errorCallback != null) {
+        errorCallback(err.message);
+      }
+    });
+}
+
 

@@ -16,7 +16,6 @@ import AboutUs from "./pages/AboutUs";
 import ContactUs from "./pages/ContactUs";
 import Terms from "./pages/Terms";
 import AdminDasboard from "./pages/AdminDashboard";
-import PartnerDasboard from "./pages/PartnerDashboard";
 import RiderDasboard from "./pages/RiderDashboard";
 import RegisterList from "./pages/RegisterList";
 import CampaignAdd from "./components/Layout/form/CampaignAdd";
@@ -29,6 +28,7 @@ import MenuDasboard from "./pages/MenuDashboard";
 import OrderDasboard from "./pages/OrderDashboard";
 import DeliveryDasboard from "./pages/DeliveryDashboard";
 import CaregiverDasboard from "./pages/CaregiverDashboard";
+import CaregiverDeliverDasboard from "./pages/CaregiverDeliverDashboard";
 
 
 function App() {
@@ -54,12 +54,14 @@ function App() {
       <Route path="/menu/:name/:menId" element={authUser.role.includes("member") ? <Menu /> : <Navigate to="/login" />}/>
       <Route path="/menu/delivery/:meId" element={authUser.role.includes("member") ? <DeliveryDasboard /> : <Navigate to="/login" />}/>
       <Route path="/caregiver-dashboard" element={authUser.role.includes("caregiver") ? <CaregiverDasboard /> : <Navigate to="/login" />}/>
+      <Route path="/caregiver-delivery" element={authUser.role.includes("caregiver") ? <CaregiverDeliverDasboard /> : <Navigate to="/login" />}/>
       <Route path="/add-campaign" element={authUser.role.includes("admin") ? <CampaignAdd /> : <Navigate to="/login" />}/>
       <Route path="/admin-dashboard" element={authUser.role.includes("admin") ? <AdminDasboard /> : <Navigate to="/login" />}/>
-      <Route path="/partner-dashboard" element={authUser.role.includes("partner") ? <PartnerDasboard /> : <Navigate to="/login" />}/>
+      <Route path="/admin-order" element={authUser.role.includes("admin") ? <CaregiverDasboard /> : <Navigate to="/login" />}/>
+      <Route path="/admin-delivery" element={authUser.role.includes("admin") ? <CaregiverDeliverDasboard /> : <Navigate to="/login" />}/>
       <Route path="/add-menu" element={authUser.role.includes("partner") ? <MenuAdd /> : <Navigate to="/login" />}/>
-      <Route path="/partner-dashboard/:pid" element={authUser.role.includes("partner") ? <MenuDasboard /> : <Navigate to="/login" />}/>
-      <Route path="/partner-dashboard/order/:pid" element={authUser.role.includes("partner") ? <OrderDasboard /> : <Navigate to="/login" />}/>
+      <Route path="/menu-dashboard" element={authUser.role.includes("partner") ? <MenuDasboard /> : <Navigate to="/login" />}/>
+      <Route path="/order-dashboard" element={authUser.role.includes("partner") ? <OrderDasboard /> : <Navigate to="/login" />}/>
       <Route path="/rider-dashboard" element={authUser.role.includes("rider") ? <RiderDasboard /> : <Navigate to="/login" />}/>
       
       <Route path="/oauth2/redirect" element={<OAuth2RedirectHandler />} />

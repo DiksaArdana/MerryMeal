@@ -56,8 +56,12 @@ const NavigationBar = (props) => {
                                 </a>
                                 <ul className="dropdown-menu bg-primary px-3 " aria-labelledby="navbarDropdown">
                                 {authCtx.role.includes("admin") && (
-                                    <><li className="mb-3"><NavLink to="/admin-dashboard" className="btn btn-outline-warning me-0 me-lg-3 mb-3 mb-lg-0 ">Dashboard</NavLink></li>
-                                    <li className="mb-3"><NavLink to="/add-campaign" className="btn btn-outline-warning me-0 me-lg-3 mb-3 mb-lg-0 ">Campaign </NavLink></li></>
+                                    <>
+                                    <li className="mb-3"><NavLink to="/admin-dashboard" className="btn btn-outline-warning me-0 me-lg-3 mb-3 mb-lg-0 ">Dashboard</NavLink></li>
+                                    <li className="mb-3"><NavLink to="/add-campaign" className="btn btn-outline-warning me-0 me-lg-3 mb-3 mb-lg-0 ">Campaign </NavLink></li>
+                                    <li className="mb-3"><NavLink to="/admin-order" className="btn btn-outline-warning me-0 me-lg-3 mb-3 mb-lg-0 ">Order List </NavLink></li>
+                                    <li className="mb-3"><NavLink to="/admin-delivery" className="btn btn-outline-warning me-0 me-lg-3 mb-3 mb-lg-0 ">Delivery List </NavLink></li>
+                                    </>
                                 )}
                                 {authCtx.role.includes("member") && (
                                     <>
@@ -67,11 +71,13 @@ const NavigationBar = (props) => {
                                 {authCtx.role.includes("caregiver") && (
                                     <>
                                     <li className="mb-3"><NavLink to="/caregiver-dashboard" className="btn btn-outline-warning me-0 me-lg-3 mb-3 mb-lg-0 ">Dashboard</NavLink></li>
+                                    <li className="mb-3"><NavLink to="/caregiver-delivery" className="btn btn-outline-warning me-0 me-lg-3 mb-3 mb-lg-0 ">Manage Delivery</NavLink></li>
                                     </>
                                 )}
                                 {authCtx.role.includes("partner") && (
                                     <>
-                                    <li className="mb-3"><NavLink to="/partner-dashboard" className="btn btn-outline-warning me-0 me-lg-3 mb-3 mb-lg-0 ">Order</NavLink></li>
+                                    <li className="mb-3"><NavLink to="/order-dashboard" className="btn btn-outline-warning me-0 me-lg-3 mb-3 mb-lg-0 ">Order</NavLink></li>
+                                    <li className="mb-3"><NavLink to="/menu-dashboard" className="btn btn-outline-warning me-0 me-lg-3 mb-3 mb-lg-0 ">Menu</NavLink></li>
                                     <li className="mb-3"><NavLink to="/add-menu" className="btn btn-outline-warning me-0 me-lg-3 mb-3 mb-lg-0 ">Add Menu</NavLink></li>
                                     </>
                                     

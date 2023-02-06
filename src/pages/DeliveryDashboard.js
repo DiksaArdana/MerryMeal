@@ -37,7 +37,7 @@ const DeliveryDasboard =()=>{
     inputDeliveredRef.current.value = "";
     };
 
-    // Get List Car
+    // Get List Delivery member
     useEffect(() => {
       getListDeliveryMember(
           params.meId,
