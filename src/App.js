@@ -29,6 +29,9 @@ import OrderDasboard from "./pages/OrderDashboard";
 import DeliveryDasboard from "./pages/DeliveryDashboard";
 import CaregiverDasboard from "./pages/CaregiverDashboard";
 import CaregiverDeliverDasboard from "./pages/CaregiverDeliverDashboard";
+import DonationPage from "./pages/donasi/Donation"
+import DonatePage from "./pages/donasi/Donate"
+import DonateThankYou from "./pages/donasi/ThankYou"
 
 
 function App() {
@@ -63,6 +66,9 @@ function App() {
       <Route path="/menu-dashboard" element={authUser.role.includes("partner") ? <MenuDasboard /> : <Navigate to="/login" />}/>
       <Route path="/order-dashboard" element={authUser.role.includes("partner") ? <OrderDasboard /> : <Navigate to="/login" />}/>
       <Route path="/rider-dashboard" element={authUser.role.includes("rider") ? <RiderDasboard /> : <Navigate to="/login" />}/>
+      <Route path="/donation" element={<DonationPage />} />
+      <Route path="/donation/donate" element={<DonatePage />} />
+      <Route path="/donation/thank-you" element={<DonateThankYou />} />
       
       <Route path="/oauth2/redirect" element={<OAuth2RedirectHandler />} />
       <Route
