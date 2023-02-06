@@ -28,6 +28,7 @@ import Menu from "./pages/Menu";
 import MenuDasboard from "./pages/MenuDashboard";
 import OrderDasboard from "./pages/OrderDashboard";
 import DeliveryDasboard from "./pages/DeliveryDashboard";
+import CaregiverDasboard from "./pages/CaregiverDashboard";
 
 
 function App() {
@@ -52,6 +53,7 @@ function App() {
       <Route path="/menu" element={authUser.role.includes("member") ? <MenuList/> : <Navigate to="/login" />}/>
       <Route path="/menu/:name/:menId" element={authUser.role.includes("member") ? <Menu /> : <Navigate to="/login" />}/>
       <Route path="/menu/delivery/:meId" element={authUser.role.includes("member") ? <DeliveryDasboard /> : <Navigate to="/login" />}/>
+      <Route path="/caregiver-dashboard" element={authUser.role.includes("caregiver") ? <CaregiverDasboard /> : <Navigate to="/login" />}/>
       <Route path="/add-campaign" element={authUser.role.includes("admin") ? <CampaignAdd /> : <Navigate to="/login" />}/>
       <Route path="/admin-dashboard" element={authUser.role.includes("admin") ? <AdminDasboard /> : <Navigate to="/login" />}/>
       <Route path="/partner-dashboard" element={authUser.role.includes("partner") ? <PartnerDasboard /> : <Navigate to="/login" />}/>

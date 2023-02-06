@@ -161,6 +161,34 @@ export function getListDeliveryMember(id,callback, errorCallback) {
       }
     });
 }
+export function getListMember(callback, errorCallback) {
+  axios
+    .get(`http://localhost:8082/api/users/member-list`)
+    .then((res) => {
+      if (callback != null) {
+        callback(res.data);
+      }
+    })
+    .catch((err) => {
+      if (errorCallback != null) {
+        errorCallback(err.message);
+      }
+    });
+}
+export function getListUser(callback, errorCallback) {
+  axios
+    .get(`http://localhost:8082/api/users/user-list`)
+    .then((res) => {
+      if (callback != null) {
+        callback(res.data);
+      }
+    })
+    .catch((err) => {
+      if (errorCallback != null) {
+        errorCallback(err.message);
+      }
+    });
+}
 // // GET Search By Keyword
 // export function getSearchByKeyword(keyword, callback, errorCallback) {
 //   axios

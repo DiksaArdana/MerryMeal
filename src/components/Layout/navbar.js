@@ -64,6 +64,11 @@ const NavigationBar = (props) => {
                                     <li className="mb-3"><NavLink to="/menu" className="btn btn-outline-warning me-0 me-lg-3 mb-3 mb-lg-0 ">Menu</NavLink></li>
                                     </>
                                 )}
+                                {authCtx.role.includes("caregiver") && (
+                                    <>
+                                    <li className="mb-3"><NavLink to="/caregiver-dashboard" className="btn btn-outline-warning me-0 me-lg-3 mb-3 mb-lg-0 ">Dashboard</NavLink></li>
+                                    </>
+                                )}
                                 {authCtx.role.includes("partner") && (
                                     <>
                                     <li className="mb-3"><NavLink to="/partner-dashboard" className="btn btn-outline-warning me-0 me-lg-3 mb-3 mb-lg-0 ">Order</NavLink></li>

@@ -1,17 +1,17 @@
 import React, { useContext, useEffect, useState } from "react";
 import Layout from "../components/Layout/Layout";
 import AuthContext from "../context/AuthContext";
-import { getListUser } from "../services/StoreService";
-const AdminDasboard =()=>{
+import { getListMember } from "../services/StoreService";
+const CaregiverDasboard =()=>{
     const authCtx = useContext(AuthContext);
-    const [listUser, setListUser] = useState([]);
+    const [listMember, setListMember] = useState([]);
 
     // Get List Car
     useEffect(() => {
-        getListUser(
+        getListMember(
           (data) => {
             console.log(data);
-            setListUser(data);
+            setListMember(data);
           },
           (error) => {
             console.log(error);
@@ -24,7 +24,7 @@ const AdminDasboard =()=>{
         
         <div>
             <Layout>
-                <h2>Dashboard Admin</h2>
+                <h2>Caregiver Dashboard</h2>
                 <div className="container">
                     <table>
                         <tr>
@@ -32,15 +32,16 @@ const AdminDasboard =()=>{
                             <th>Name</th>
                             <th>Email</th>
                             <th>Phone</th>
-                            <th>Role</th>
+                            <th>Address</th>
                         </tr>
-                        {listUser.map((cam) => (
+                        {listMember.map((cam) => (
                         <tr>
                             <td>{cam.id}</td>
                             <td>{cam.name}</td>
                             <td>{cam.email}</td>
                             <td>{cam.phone}</td>
-                            <td>{cam.role}</td>
+                            <td>{cam.address}</td>
+                            
                         </tr>
                         ))}
                     </table>
@@ -51,4 +52,4 @@ const AdminDasboard =()=>{
         </div>
     )
 }
-export default AdminDasboard;
+export default CaregiverDasboard;
